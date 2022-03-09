@@ -25,7 +25,7 @@ console.log('origin from', process.env.ORIGIN)
 
 // });
 
-console.log('set up action')
+console.log('watch yohoo')
 
 RedisClient.on('error', function (error) {
   console.log(error)
