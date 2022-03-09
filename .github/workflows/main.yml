@@ -9,14 +9,12 @@ on:
       - master
 
 jobs:
-  build-and-deploy-back:
-    name: Build and Deploy Back-end
+  build:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-
-    env:
+    - uses: actions/checkout@v2
+    - name: docker login
+      env:
         DOCKER_USER: ${{ secrets.DOCKER_USERNAME }}
         DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
       run: |
@@ -25,7 +23,7 @@ jobs:
     - name: Build Docker image
       run: |
         docker build -t ekaluk52003/invoicepromptapi .
-        
+
     - name: docker push
       run: |
         docker push ekaluk52003/invoicepromptapi
