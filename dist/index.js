@@ -27,6 +27,7 @@ const main = () => __awaiter(void 0, void 0, void 0, function* () {
     dotenv_1.default.config();
     console.log('origin from', process.env.ORIGIN);
     const RedisClient = new ioredis_1.default(process.env.REDIS_URL);
+    console.log('set up action');
     RedisClient.on('error', function (error) {
         console.log(error);
     });
