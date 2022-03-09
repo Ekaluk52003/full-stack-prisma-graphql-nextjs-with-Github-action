@@ -23,7 +23,7 @@
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "express-session": "^1.17.2",
-    "graphql": "^15.5.1",
+    "graphql": "^14.6.0",
     "graphql-type-json": "^0.3.2",
     "ioredis": "^4.27.9",
     "nexus": "^1.2.0"
