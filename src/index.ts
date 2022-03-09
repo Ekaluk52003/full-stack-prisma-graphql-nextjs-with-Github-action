@@ -25,6 +25,7 @@ console.log('origin from', process.env.ORIGIN)
 
 // });
 
+console.log('set up action')
 
 RedisClient.on('error', function (error) {
   console.log(error)
