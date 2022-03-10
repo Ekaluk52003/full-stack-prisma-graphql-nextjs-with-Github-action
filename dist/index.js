@@ -25,9 +25,8 @@ const db_1 = require("./db");
 const utils_1 = require("./utils");
 const main = () => __awaiter(void 0, void 0, void 0, function* () {
     dotenv_1.default.config();
-    console.log('origin from', process.env.ORIGIN);
+    console.log('watch yohoo tricker at 11:30');
     const RedisClient = new ioredis_1.default(process.env.REDIS_URL);
-    console.log('set up action');
     RedisClient.on('error', function (error) {
         console.log(error);
     });

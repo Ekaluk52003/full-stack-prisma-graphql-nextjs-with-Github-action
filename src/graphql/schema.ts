@@ -1,6 +1,5 @@
 import { makeSchema, fieldAuthorizePlugin } from 'nexus';
 import { Query } from './Query';
-import path from 'path';
 import { Mutation } from './Mutation';
 import { UserType } from './UserType';
 import { GetMeType } from './GetMeType';
@@ -11,8 +10,8 @@ export const getSchema = () => {
     types: [Query, Mutation, UserType, GetMeType, CustomerQuery],
 
     outputs: {
-      schema: path.join(process.cwd(), 'nexus', 'schema.graphql'),
-      typegen: path.join(process.cwd(), 'nexus', 'nexus.ts'),
+      schema: process.cwd() + 'nexus/schema.graphql',
+      typegen: process.cwd() + 'nexus/nexus.ts',
     },
     plugins: [fieldAuthorizePlugin()],
 
