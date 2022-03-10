@@ -10,8 +10,8 @@ export const getSchema = () => {
     types: [Query, Mutation, UserType, GetMeType, CustomerQuery],
 
     outputs: {
-      schema: process.cwd() + 'nexus/schema.graphql',
-      typegen: process.cwd() + 'nexus/nexus.ts',
+      schema: process.cwd() + '/nexus/schema.graphql',
+      typegen: process.cwd() + '/nexus/nexus.ts',
     },
     plugins: [fieldAuthorizePlugin()],
 
