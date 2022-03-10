@@ -1,9 +1,7 @@
 FROM node:14-alpine
 
-RUN addgroup app && adduser -S -G app app
-USER app
 # Create app directory
-WORKDIR /app
+WORKDIR /usr/src/app
 
 
 # Install app dependencies
