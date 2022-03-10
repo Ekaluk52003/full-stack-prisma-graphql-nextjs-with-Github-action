@@ -2,6 +2,7 @@ FROM node:14-alpine
 
 # Create app directory
 WORKDIR /app
+RUN mkdir -p /nexus && chown -R node:node /nexus
 
 # Install app dependencies
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
