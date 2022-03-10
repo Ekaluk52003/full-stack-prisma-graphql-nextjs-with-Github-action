@@ -59,6 +59,3 @@ volumes:
   postgres:
   caddy:
   watchtower:
-
-
-

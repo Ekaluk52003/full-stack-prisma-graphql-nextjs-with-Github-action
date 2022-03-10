@@ -15,7 +15,6 @@ RUN yarn
 RUN npx prisma generate
 
 COPY . .
-RUN ls -l
 RUN yarn build
 
 EXPOSE 8080
