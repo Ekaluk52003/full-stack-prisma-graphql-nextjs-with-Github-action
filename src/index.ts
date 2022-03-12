@@ -16,7 +16,7 @@ import { isProd } from './utils';
 
 const main = async () => {
   dotenv.config();
-  console.log('watch yohoo tricker at 11:30')
+  console.log('watch yohoo')
   const RedisClient = new Redis(process.env.REDIS_URL);
 //   const RedisClient = new Redis({
 //     host:  'srv-captain--redis-caprover',
