@@ -21,8 +21,7 @@ services:
       - WithGithubaction
 
   server:
-    # image: "ekaluk52003/invoicepromptapi"
-    build: ./
+    image: "ekaluk52003/invoicepromptapi"
     environment:
       DATABASE_URL: "postgresql://postgres:postgres@db:5432/mydb?schema=public"
       REDIS_URL: 'redis://redis:6379'
