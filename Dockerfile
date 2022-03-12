@@ -18,4 +18,8 @@ RUN ls -l
 RUN yarn build
 
 EXPOSE 8080
+<<<<<<< HEAD
 CMD [ "node", "dist/index.js" ]
+=======
+CMD [ "node", "dist/index.js" ]
+>>>>>>> bd4cd466f018ea469bfc2c174f04cae6100dc4bd
