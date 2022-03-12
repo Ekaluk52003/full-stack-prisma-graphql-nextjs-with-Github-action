@@ -21,14 +21,12 @@ jobs:
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
 
     - name: Build Docker image
-      run: pub get
-        working-directory: backend
+      working-directory: ./backend
       run: |
         docker build -t ekaluk52003/invoicepromptapi:pre-production .
 
     - name: docker push
-      run: pub get
-        working-directory: backend
+      working-directory: ./backend
       run: |
         docker push ekaluk52003/invoicepromptapi:pre-production
 
