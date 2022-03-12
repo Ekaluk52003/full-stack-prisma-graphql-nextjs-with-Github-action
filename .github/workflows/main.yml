@@ -22,11 +22,11 @@ jobs:
 
     - name: Build Docker image
       run: |
-        docker build -t ekaluk52003/invoicepromptapi:1.5 .
+        docker build -t ekaluk52003/invoicepromptapi .
 
     - name: docker push
       run: |
-        docker push ekaluk52003/invoicepromptapi:1.5
+        docker push ekaluk52003/invoicepromptapi
 
 
 
