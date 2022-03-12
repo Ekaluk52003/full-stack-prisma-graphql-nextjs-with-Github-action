@@ -1,0 +1,39 @@
+name: Build Containers for Prod & Push to Dockerhub
+
+on:
+  pull_request:
+    branches:
+      - master
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: docker login
+      env:
+        DOCKER_USER: ${{ secrets.DOCKER_USERNAME }}
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      run: |
+        docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+
+    - name: Build Docker image
+      run: pub get
+        working-directory: backend
+      run: |
+        docker build -t ekaluk52003/invoicepromptapi:pre-production .
+
+    - name: docker push
+      run: pub get
+        working-directory: backend
+      run: |
+        docker push ekaluk52003/invoicepromptapi:pre-production
+
+
+
+
+
+
