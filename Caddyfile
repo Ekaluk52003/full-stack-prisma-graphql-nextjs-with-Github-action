@@ -1,8 +1,13 @@
 
+
+milldev.localhost {
+  reverse_proxy server:5000
+}
+
+
 linode.milldev.click {
   reverse_proxy server:5000 {
 header_down Strict-Transport-Security max-age=31536000;
 }
-
 
 
