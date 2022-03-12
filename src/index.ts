@@ -16,7 +16,7 @@ import { isProd } from './utils';
 
 const main = async () => {
   dotenv.config();
-  console.log('watch git update')
+  console.log('watch git pre-production')
   const RedisClient = new Redis(process.env.REDIS_URL);
 //   const RedisClient = new Redis({
 //     host:  'srv-captain--redis-caprover',
