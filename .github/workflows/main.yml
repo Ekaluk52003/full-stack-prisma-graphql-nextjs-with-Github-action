@@ -20,16 +20,25 @@ jobs:
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
 
-    - name: Build Docker image
+    - name: Build Docker image backend
       working-directory: ./backend
       run: |
         docker build -t ekaluk52003/invoicepromptapi:pre-production .
 
-    - name: docker push
+    - name: docker push backend
       working-directory: ./backend
       run: |
         docker push ekaluk52003/invoicepromptapi:pre-production
 
+    - name: Build Docker image frontend
+      working-directory: ./frontend
+      run: |
+        docker build -t ekaluk52003/invoicepromptfrontend:pre-production .
+
+    - name: docker push frontend
+      working-directory: ./frontend
+      run: |
+        docker push ekaluk52003/invoicepromptfrontend:pre-production
 
 
 
