@@ -30,7 +30,7 @@ services:
       REDIS_URL: 'redis://redis:6379'
       SESSION_SECRET: "sinnerman"
       PORT: '5000'
-      ORIGIN : "https://promptinvoice.milldev.click"
+      ORIGIN : "https://invoice.milldev.click"
     ports:
       - "5000:5000"
     links :
