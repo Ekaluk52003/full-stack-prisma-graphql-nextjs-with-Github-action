@@ -60,7 +60,7 @@ const Myapp = (props: MyAppProps) => {
 };
 
 const httpLink = new HttpLink({
-  uri: "https://linode.milldev.click/graphql",
+  uri: process.env.backend_url,
 
   credentials: "include",
 });
