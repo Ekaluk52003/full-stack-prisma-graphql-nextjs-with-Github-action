@@ -19,7 +19,7 @@ const About: NextPage = () => {
       }}
     >
       <Breadcrumb />
-      <Box maxWidth='sm'></Box>
+      <Box maxWidth='sm'>jj</Box>
       <ProTip />
       <Copyright />
     </Box>
