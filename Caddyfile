@@ -10,16 +10,12 @@ frontdev.localhost {
 }
 
 
-
-
+invoice.milldev.click {
+   reverse_proxy frontend:3000
+}
 
 linode.milldev.click {
-  reverse_proxy server:5000 {
-header_down Strict-Transport-Security max-age=31536000;
+  reverse_proxy server:5000
 }
 
 
-promptinvoice.milldev.click {
-   reverse_proxy frontend:3000 {
-header_down Strict-Transport-Security max-age=31536000;
-}
