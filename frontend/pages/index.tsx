@@ -16,7 +16,7 @@ const Home: NextPage = () => {
       }}
     >
       <Typography variant='h5' component='h5' gutterBottom>
-        This is mill
+        This is version 1.1
       </Typography>
     </Paper>
   );
