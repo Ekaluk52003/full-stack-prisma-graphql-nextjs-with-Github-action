@@ -33,6 +33,10 @@ services:
       ORIGIN : "https://frontdev.localhost"
     ports:
       - "5000:5000"
+    volumes:
+      - ./backend:/app
+      -  /app/node_modules
+      - /app/dist
     links :
       - redis
       - db
@@ -47,6 +51,7 @@ services:
       backend_url: "https://milldev.localhost/graphql"
     volumes:
       - ./frontend:/app
+      #don't bind this foler with host
       - /app/node_modules
       - /app/.next
     networks:
