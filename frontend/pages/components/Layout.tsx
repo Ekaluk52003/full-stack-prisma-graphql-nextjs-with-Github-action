@@ -70,7 +70,7 @@ export default function Layout({ children, ...pageProps }) {
                   fontWeight: "bold",
                 }}
               >
-                <CreditScoreIcon /> Prompt Invoice 1.0
+                <CreditScoreIcon /> Prompt Invoice 1.8
               </Typography>
               <Box
                 sx={{
