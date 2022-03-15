@@ -143,8 +143,8 @@ export const Query = queryType({
 
             const invoices = await prisma.$queryRaw`SELECT "public"."Invoice"."id", "public"."Invoice"."createdAt", "Invoice"."dueDate", "number", "TotalAmount" , "public"."Invoice"."status", "public"."Customer"."name", "title", "username" from "public"."Invoice"  INNER JOIN "public"."User" ON "public"."Invoice"."userId" = "public"."User"."id"
             INNER JOIN "public"."Customer" ON "public"."Invoice"."customerId" = "public"."Customer"."id"
-            WHERE  "public"."Invoice"."createdAt" >= ${fromDate} AND "public"."Invoice"."createdAt" <=  ${toDate} AND "title" ILIKE  ${keyword} AND "Invoice"."status" = ${status} ORDER BY "createdAt" DESC`
-            console.log('date ARG')
+            WHERE  "public"."Invoice"."createdAt" >= ${fromDate} AND "public"."Invoice"."createdAt"- interval '1' day  <=  ${toDate} AND "title" ILIKE  ${keyword} AND "Invoice"."status" = ${status} ORDER BY "createdAt" DESC`
+            console.log('change')
             return invoices
           }
 

@@ -1,4 +1,4 @@
-FROM node:14-alpine
+FROM node:14-alpine as base
 
 # Create app directory
 WORKDIR /app
@@ -14,7 +14,12 @@ RUN yarn
 
 COPY . .
 RUN ls -l
-RUN yarn build
 
-EXPOSE 8080
+FROM base as dev
+ENV NODE_ENV=development
+CMD [ "yarn", "dev" ]
+
+FROM base as production
+ENV NODE_ENV=production
+RUN yarn build
 CMD [ "yarn", "start:migrate:prod" ]
