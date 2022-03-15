@@ -1,15 +1,4 @@
 
-
-milldev.localhost {
-  reverse_proxy server:5000
-}
-
-
-frontdev.localhost {
-  reverse_proxy frontend:3000
-}
-
-
 invoice.milldev.click {
    reverse_proxy frontend:3000
 }
