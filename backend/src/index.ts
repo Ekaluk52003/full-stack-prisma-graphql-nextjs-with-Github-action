@@ -16,7 +16,7 @@ import { isProd } from './utils';
 
 const main = async () => {
   dotenv.config();
-  console.log('witchnage',process.env.ORIGIN )
+  console.log('star agin')
   const RedisClient = new Redis(process.env.REDIS_URL);
 //   const RedisClient = new Redis({
 //     host:  'srv-captain--redis-caprover',

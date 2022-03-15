@@ -36,10 +36,10 @@ export const InvoiceList = () => {
     moment().format("YYYY-MMM-DD")
   );
 
-  const [InvoiceStatus, setInvoiceStatus] = useState<any>("DRAFT");
+  const [InvoiceStatus, setInvoiceStatus] = useState<any>("CANCEL");
   const [InvoiceOverdue, setInvoiceOverdue] = useState(false);
 
-  const [loadinvoice, { called, loading: loadlist, data }] =
+  const [loadinvoice, { called, loading: loadlist, data: invData }] =
     useFindInvoiceLazyQuery({
       variables: {
         where: "",
@@ -59,6 +59,7 @@ export const InvoiceList = () => {
   };
 
   useEffect((): any => {
+    loadinvoice();
     if (loadlist) {
       return (
         <Box sx={{ display: "flex" }}>
@@ -66,8 +67,7 @@ export const InvoiceList = () => {
         </Box>
       );
     }
-    loadinvoice();
-  }, [loadlist]);
+  }, [loadlist, invData]);
 
   return (
     <>
@@ -179,11 +179,7 @@ export const InvoiceList = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-
-
-        
-
-            {data!.findinvoice.map((row) => (
+            {invData && invData.findinvoice.length > 0 ? invData.findinvoice.map((row) => (
               <Link href={`/invoices/${row?.id}`} passHref>
                 <TableRow
                   key={row.name}
@@ -244,7 +240,8 @@ export const InvoiceList = () => {
                   </TableCell>
                 </TableRow>
               </Link>
-            ))}
+            )) : "no data on specific date"}
+
           </TableBody>
         </Table>
       </TableContainer>

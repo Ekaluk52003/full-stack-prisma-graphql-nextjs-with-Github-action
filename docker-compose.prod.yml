@@ -24,13 +24,17 @@ services:
       - WithGithubaction
 
   server:
-    image: ekaluk52003/invoicepromptapi:pre-production
+    build:
+      target: production
+      image: ekaluk52003/invoicepromptapi:pre-production
     environment:
       DATABASE_URL: "postgresql://postgres:postgres@db:5432/mydb?schema=public"
       REDIS_URL: 'redis://redis:6379'
       SESSION_SECRET: "sinnerman"
       PORT: '5000'
       ORIGIN : "https://invoice.milldev.click"
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
     ports:
       - "5000:5000"
     links :
@@ -43,6 +47,8 @@ services:
     image: ekaluk52003/invoicepromptfrontend:pre-production
     ports:
       - '3000:3000'
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
     environment:
       backend_url: "https://linode.milldev.click/graphql"
     networks:
@@ -62,9 +68,11 @@ services:
 
   watchtower:
     image: containrrr/watchtower
+    environment:
+      - TZ=Asia/Bangkok
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-    command: --interval 30
+    command: --label-enable --cleanup --interval 30
 
 networks:
  WithGithubaction:
