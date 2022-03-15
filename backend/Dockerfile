@@ -11,11 +11,10 @@ COPY prisma ./prisma/
 
 
 RUN yarn
-RUN npx prisma generate
 
 COPY . .
 RUN ls -l
 RUN yarn build
 
 EXPOSE 8080
-CMD [ "node", "dist/index.js" ]
+CMD [ "yarn", "start:migrate:prod" ]

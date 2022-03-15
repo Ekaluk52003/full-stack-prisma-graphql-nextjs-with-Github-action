@@ -33,6 +33,10 @@ services:
       ORIGIN : "https://frontdev.localhost"
     ports:
       - "5000:5000"
+    volumes:
+      - ./backend:/app
+      -  /app/node_modules
+      - /app/dist
     links :
       - redis
       - db
@@ -45,6 +49,11 @@ services:
       - '3000:3000'
     environment:
       backend_url: "https://milldev.localhost/graphql"
+    volumes:
+      - ./frontend:/app
+      #don't bind this foler with host
+      - /app/node_modules
+      - /app/.next
     networks:
       - WithGithubaction
 
@@ -59,12 +68,6 @@ services:
       - ./Caddyfile:/etc/caddy/Caddyfile
     networks:
       - WithGithubaction
-
-  watchtower:
-    image: containrrr/watchtower
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-    command: --interval 30
 
 networks:
  WithGithubaction:
