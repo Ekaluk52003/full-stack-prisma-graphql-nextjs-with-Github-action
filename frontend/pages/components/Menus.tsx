@@ -35,7 +35,7 @@ const Menus = () => {
         "&:hover": {
           color: "white",
         },
-        
+
       }}
     >
       <Link href='/' passHref>
@@ -66,7 +66,7 @@ const Menus = () => {
         </ListItem>
       </Link>
 
-      <Link href='/about' passHref>
+      <Link href='/createinvoice' passHref>
         <ListItem  sx={{
             color: "text.secondary",
             cursor: "pointer",
@@ -87,12 +87,12 @@ const Menus = () => {
             },
           }}
           >
-           About
+           New invoice
           </Typography>
 
         </ListItem>
       </Link>
-      <Link href='/signin' passHref>
+      <Link href='/invoices' passHref>
         <ListItem  sx={{
             color: "text.secondary",
             cursor: "pointer",
@@ -113,7 +113,7 @@ const Menus = () => {
             },
           }}
           >
-           Signin
+           All invoice
           </Typography>
 
         </ListItem>
