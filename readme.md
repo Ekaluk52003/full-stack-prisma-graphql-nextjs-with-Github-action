@@ -1,6 +1,6 @@
-### Node.js GraphQL API
+### Full stack Nexjs
 
-#### Users & Posts 
+#### Users & Posts
 
 - Queries
 - Mutations
