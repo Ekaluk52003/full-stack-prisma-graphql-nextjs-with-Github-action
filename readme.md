@@ -8,6 +8,8 @@
   - Prisma
 - GraphQL
   - Nexus Schema
+- Reverse Proxy
+  - Caddy
 
 ### Deployment with Dockers for local development.
 - docker-compose.yml will build custom images for both backend and fontend.
