@@ -9,3 +9,7 @@
 - GraphQL
   - Nexus Schema
 
+```sh
+npm install
+npm run dev
+```
