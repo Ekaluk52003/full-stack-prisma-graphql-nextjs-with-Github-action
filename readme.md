@@ -1,13 +1,7 @@
 ### Full stack Nexjs
 
-#### Users & Posts
-
-- Queries
-- Mutations
-- Subscriptions
-
 ### Tech Stack
-
+- NextJs
 - TypeScript
 - Node.js & Express
 - PostgreSQL
