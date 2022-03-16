@@ -50,16 +50,16 @@ services:
     restart: always
 
   frontend:
-    build: ./frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
     ports:
       - '3000:3000'
-    environment:
-      backend_url: "http://localhost:5000/graphql"
     volumes:
       - ./frontend:/app
       #don't bind this foler with host
       - /app/node_modules
-      - /app/.next
+
     networks:
       - WithGithubaction
     restart: always

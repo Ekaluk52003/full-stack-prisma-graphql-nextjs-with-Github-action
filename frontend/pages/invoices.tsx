@@ -1,24 +1,14 @@
-import type { NextPage } from "next";
 import InvoiceList from "./components/InvoiceList";
 import EqualizerIcon from "@mui/icons-material/Equalizer";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
-import moment, { Moment } from "moment";
-import {
-  Button,
-  Grid,
-  Menu,
-  MenuItem,
-  Typography,
-  Box,
-  Paper,
-} from "@mui/material";
+import moment from "moment";
+import { Grid, Typography, Box, Paper } from "@mui/material";
 import withAuth from "../utils/withAuth";
 
 import { useSuminvQuery } from "../generated";
 import dynamic from "next/dynamic";
-const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
-const Invoices: NextPage = () => {
+const Invoices = () => {
   const { data, loading } = useSuminvQuery();
   if (loading) return "loading";
 
@@ -29,7 +19,6 @@ const Invoices: NextPage = () => {
           <Paper sx={{ p: 6, borderRadius: 5 }} elevation={0}>
             <Box sx={{ display: "flex", justifyContent: "space-between" }}>
               <Box>
-                {" "}
                 <Typography variant='h4'>This week Sale</Typography>
                 <Typography variant='h3'>
                   ${data.suminvoices[0].amount}
@@ -66,5 +55,5 @@ const Invoices: NextPage = () => {
     </>
   );
 };
-
+//@ts-ignore
 export default withAuth(Invoices);
