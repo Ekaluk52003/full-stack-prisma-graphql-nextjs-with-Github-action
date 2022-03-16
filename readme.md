@@ -22,4 +22,9 @@ docker-compose up -d --build
 ```sh
 docker-compose -f docker-compose.prod.yml up -d --build
 ```
-### Github action will build images and push to dockerhub
+### CI/CD with Github action
+ - Github action is triggered by Taging. The action is to perform to build the images and push to Docker hub.
+
+### Docker Watch Tower
+ - Docker watch Tower listen to any change from an image from docker hub.
+ And will build new images and container on production server
