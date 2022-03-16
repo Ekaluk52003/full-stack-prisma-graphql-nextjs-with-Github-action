@@ -33,6 +33,7 @@ const Myapp = (props: MyAppProps) => {
     pageProps,
     apollo,
   } = props;
+  console.log(process.env.NEXT_PUBLIC_BACKEND_URL);
 
   return (
     <CacheProvider value={emotionCache}>
@@ -60,7 +61,7 @@ const Myapp = (props: MyAppProps) => {
 };
 
 const httpLink = new HttpLink({
-  uri: process.env.backend_url,
+  uri: process.env.NEXT_PUBLIC_BACKEND_URL,
 
   credentials: "include",
 });
