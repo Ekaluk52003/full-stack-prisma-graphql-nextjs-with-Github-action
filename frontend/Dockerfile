@@ -1,3 +1,4 @@
+# This docker file will be run on production server
 FROM node:alpine as BUILD_IMAGE
 WORKDIR /app
 COPY package.json yarn.lock ./
