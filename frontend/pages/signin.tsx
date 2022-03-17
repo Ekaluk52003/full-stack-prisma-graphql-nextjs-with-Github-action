@@ -42,7 +42,8 @@ const Signin = () => {
       display='flex'
       alignItems='center'
       justifyContent='center'
-      style={{ minHeight: "70vh" }}
+
+      style={{ minHeight: "70vh" , width:"90vw"}}
     >
       <form
         onSubmit={handleSubmit(onSubmit)}

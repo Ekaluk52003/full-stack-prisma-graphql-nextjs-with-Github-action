@@ -70,7 +70,7 @@ export default function Layout({ children, ...pageProps }) {
                   fontWeight: "bold",
                 }}
               >
-                <CreditScoreIcon /> Prompt Invoice 1.9
+                <CreditScoreIcon /> Prompt Invoice
               </Typography>
               <Box
                 sx={{
@@ -158,9 +158,8 @@ export default function Layout({ children, ...pageProps }) {
       )}
       <Box
         sx={{
-          flexGrow: 1,
-          p: 3,
-          width: { sm: `calc(100% - ${drawerWidth}px)` },
+          width: { sm: `calc(100% - ${user ?  drawerWidth+'px' : 0})` },
+         p:2
         }}
       >
         <Toolbar />
