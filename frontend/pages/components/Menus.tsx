@@ -29,13 +29,12 @@ const Menus = () => {
   return (
     <List
       sx={{
-        mt:10,
+        mt: 10,
         color: "text.secondary",
         cursor: "pointer",
         "&:hover": {
           color: "white",
         },
-
       }}
     >
       <Link href='/' passHref>
@@ -52,14 +51,14 @@ const Menus = () => {
             <InboxIcon />
           </ListItemIcon>
           <Typography
-          sx={{
-            fontWeight:"bold",
-            color: "text.secondary",
-            cursor: "pointer",
-            "&:hover": {
-              color: "primary.main",
-            },
-          }}
+            sx={{
+              fontWeight: "bold",
+              color: "text.secondary",
+              cursor: "pointer",
+              "&:hover": {
+                color: "primary.main",
+              },
+            }}
           >
             Dashboard
           </Typography>
@@ -67,60 +66,62 @@ const Menus = () => {
       </Link>
 
       <Link href='/createinvoice' passHref>
-        <ListItem  sx={{
-            color: "text.secondary",
-            cursor: "pointer",
-            "&:hover": {
-              color: "primary.main",
-            },
-          }}>
-          <ListItemIcon >
-            <InboxIcon />
-          </ListItemIcon>
-          <Typography
+        <ListItem
           sx={{
-            fontWeight:"bold",
             color: "text.secondary",
             cursor: "pointer",
             "&:hover": {
               color: "primary.main",
             },
           }}
+        >
+          <ListItemIcon>
+            <InboxIcon />
+          </ListItemIcon>
+          <Typography
+            sx={{
+              fontWeight: "bold",
+              color: "text.secondary",
+              cursor: "pointer",
+              "&:hover": {
+                color: "primary.main",
+              },
+            }}
           >
-           New invoice
+            New invoice
           </Typography>
-
         </ListItem>
       </Link>
       <Link href='/invoices' passHref>
-        <ListItem  sx={{
+        <ListItem
+          sx={{
             color: "text.secondary",
             cursor: "pointer",
             "&:hover": {
               color: "primary.main",
             },
-          }}>
+          }}
+        >
           <ListItemIcon sx={{ color: "primary.light" }}>
             <InboxIcon />
           </ListItemIcon>
           <Typography
-          sx={{
-            fontWeight:"bold",
-            color: "text.secondary",
-            cursor: "pointer",
-            "&:hover": {
-              color: "primary.main",
-            },
-          }}
+            sx={{
+              fontWeight: "bold",
+              color: "text.secondary",
+              cursor: "pointer",
+              "&:hover": {
+                color: "primary.main",
+              },
+            }}
           >
-           All invoice
+            All invoice
           </Typography>
-
         </ListItem>
       </Link>
 
       <ListItem
-         sx={{
+        sx={{
           color: "text.secondary",
           cursor: "pointer",
           "&:hover": {
@@ -142,20 +143,17 @@ const Menus = () => {
         </ListItemIcon>
         <Typography
           sx={{
-            fontWeight:"bold",
+            fontWeight: "bold",
             color: "text.secondary",
             cursor: "pointer",
             "&:hover": {
               color: "primary.main",
             },
           }}
-          >
-           Logout
-          </Typography>
-
+        >
+          Logout
+        </Typography>
       </ListItem>
-
-
     </List>
   );
 };

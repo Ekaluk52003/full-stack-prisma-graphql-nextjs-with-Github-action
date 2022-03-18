@@ -26,9 +26,10 @@
     "next": "latest",
     "next-with-apollo": "^5.2.1",
     "react": "latest",
-    "yarn": "^1.3.9",
     "react-dom": "latest",
-    "react-hook-form": "^7.24.0"
+    "react-hook-form": "^7.24.0",
+    "react-idle-timer": "^4.6.4",
+    "yarn": "^1.3.9"
   },
   "devDependencies": {
     "@graphql-codegen/add": "^3.1.1",
