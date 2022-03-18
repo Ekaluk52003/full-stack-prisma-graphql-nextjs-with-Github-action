@@ -31,7 +31,7 @@ const Invoices = () => {
               <Box>
                 <Typography variant='body1'>Last day invoice</Typography>
                 <Typography variant='h4'>
-                  ${data.suminvoices[0].amount}
+                  ${data.suminvoices && data.suminvoices[0].amount}
                 </Typography>
               </Box>
               <Box>
