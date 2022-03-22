@@ -1,7 +1,7 @@
 FROM node:alpine as BUILD_IMAGE
 WORKDIR /app
 COPY package.json yarn.lock ./
-# install dependencies
+# install dependency
 RUN yarn install --frozen-lockfile
 COPY . .
 # build

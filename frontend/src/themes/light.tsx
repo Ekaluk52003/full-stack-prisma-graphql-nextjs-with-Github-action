@@ -1,6 +1,8 @@
 import { createTheme } from "@mui/material/styles";
 import { amber, deepOrange, grey, red, blue } from "@mui/material/colors";
 
+
+const theme = createTheme();
 // Create a theme instance.
 export const lightTheme = createTheme({
   components: {
@@ -42,9 +44,12 @@ export const lightTheme = createTheme({
     },
 
     h4: {
-      color: "#28234A",
+      color:"#28234a",
       fontWeight: "bold",
-      fontSize: "15px",
+      fontSize: "1.25rem",
+      [theme.breakpoints.up('md')]: {
+        fontSize: '1.5rem',
+      },
     },
   },
 
@@ -68,6 +73,7 @@ export const lightTheme = createTheme({
     },
   },
 });
+
 
 // lightTheme.components?.MuiButton = {
 

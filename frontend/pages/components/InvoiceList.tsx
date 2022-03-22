@@ -71,29 +71,46 @@ export const InvoiceList = () => {
 
   return (
     <>
-      <LocalizationProvider dateAdapter={DateAdapter}>
-        <DatePicker
-          inputFormat='DD-MMM-YY'
-          label='From'
-          value={fromDate}
-          onChange={(newValue) => {
-            setfromDate(newValue);
-          }}
-          renderInput={(params) => <TextField {...params} />}
-        />
-      </LocalizationProvider>
+      <Box
+        sx={{
+          display : "flex",
+          flexDirection: { xs: 'column', md: 'row' },
+          justifyContent: 'space-between',
 
-      <LocalizationProvider dateAdapter={DateAdapter}>
-        <DatePicker
-          inputFormat='DD-MMM-YY'
-          label='From'
-          value={toDate}
-          onChange={(newValue) => {
-            settoDate(newValue);
-          }}
-          renderInput={(params) => <TextField {...params} />}
-        />
-      </LocalizationProvider>
+        }}
+      >
+        <Box sx={{display:"flex", alignItems:"baseline"}}> From :
+        <LocalizationProvider dateAdapter={DateAdapter}>
+
+          <DatePicker
+            inputFormat='DD-MMM-YY'
+
+            value={fromDate}
+            onChange={(newValue) => {
+              setfromDate(newValue);
+            }}
+            renderInput={(params) => (
+              <TextField {...params} sx={{ width:150}} variant="standard"/>
+            )}
+          />
+        </LocalizationProvider>
+        </Box>
+        <Box sx={{display:"flex", alignItems:"baseline"}}>
+        To :
+        <LocalizationProvider dateAdapter={DateAdapter}>
+          <DatePicker
+            inputFormat='DD-MMM-YY'
+            value={toDate}
+            onChange={(newValue) => {
+              settoDate(newValue);
+            }}
+            renderInput={(params) => (
+              <TextField {...params} sx={{ width:150}} variant="standard" />
+            )}
+          />
+        </LocalizationProvider>
+        </Box>
+      </Box>
 
       <Grid item xs={12}>
         <Grid container alignContent='center' justifyContent='space-between'>
@@ -164,87 +181,86 @@ export const InvoiceList = () => {
         </Grid>
       </Grid>
 
-      <TableContainer>
-        <Table sx={{ minWidth: 650 }} size='small' aria-label='a dense table'>
-          <TableHead>
-            <TableRow>
-              <TableCell>Number</TableCell>
-              <TableCell align='left'>Customer</TableCell>
-              <TableCell align='left'>Title</TableCell>
-              <TableCell align='left'>Status</TableCell>
-              <TableCell align='left'>Amount</TableCell>
-              <TableCell align='left'>Created Date</TableCell>
-              <TableCell align='left'>Due Date</TableCell>
-              <TableCell align='left'>Aging</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {invData && invData.findinvoice.length > 0 ? invData.findinvoice.map((row) => (
-              <Link href={`/invoices/${row?.id}`} passHref>
-                <TableRow
-                  key={row.name}
-                  sx={{
-                    "&:last-child td, &:last-child th": { border: 0 },
-                    cursor: "pointer",
-                  }}
-                >
-                  <TableCell component='th' scope='row'>
-                    {row?.number}
-                  </TableCell>
+      <Table>
+        <TableHead>
+          <TableRow>
+            <TableCell>Number</TableCell>
+            <TableCell align='left'>Customer</TableCell>
+            <TableCell align='left'>Status</TableCell>
+            <TableCell align='left'>Amount</TableCell>
+            <TableCell align='left'>Created Date</TableCell>
+            <TableCell align='left'>Due Date</TableCell>
+            <TableCell align='left'>Aging</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {invData && invData.findinvoice
+            ? invData.findinvoice.map((row) => (
+                <Link href={`/invoices/${row?.id}`} passHref>
+                  <TableRow
+                    key={row.name}
+                    sx={{
+                      "&:last-child td, &:last-child th": { border: 0 },
+                      cursor: "pointer",
+                    }}
+                  >
+                    <TableCell component='th' scope='row'>
+                      {row?.number}
+                    </TableCell>
 
-                  <TableCell align='left'>{row?.name}</TableCell>
-                  <TableCell align='left'>{row?.title}</TableCell>
-                  <TableCell align='left'>
-                    <Chip
-                      label={row?.status}
-                      color={
-                        row?.status === "DRAFT"
-                          ? "primary"
-                          : row?.status === "CANCEL"
-                          ? "warning"
-                          : moment
-                              .duration(
-                                moment()
-                                  .startOf("day")
-                                  .diff(moment(row?.dueDate, "YYYY-MM-DD"))
-                              )
-                              .asDays() >= 0
-                          ? "warning"
-                          : "success"
-                      }
-                    />
-                  </TableCell>
-                  <TableCell align='left'>{row?.TotalAmount}</TableCell>
-                  <TableCell align='left'>
-                    {moment(row?.createdAt).format("D-MMM-YY")}
-                  </TableCell>
-                  <TableCell align='left'>
-                    {moment(row?.dueDate).format("D-MMM-YY")}
-                  </TableCell>
-                  <TableCell align='left'>
-                    {moment
-                      .duration(
-                        moment()
-                          .startOf("day")
-                          .diff(moment(row?.dueDate, "YYYY-MM-DD"))
-                      )
-                      .asDays() > 0
-                      ? moment
-                          .duration(
-                            moment()
-                              .startOf("day")
-                              .diff(moment(row?.dueDate, "YYYY-MM-DD"))
-                          )
-                          .asDays()
-                      : ""}
-                  </TableCell>
-                </TableRow>
-              </Link>
-            )) : "no data on specific date"}
-
-          </TableBody>
-        </Table>
-      </TableContainer>
+                    <TableCell align='left'>
+                      <p>{row?.name}</p>Title:{row?.title}
+                    </TableCell>
+                    <TableCell align='left'>
+                      <Chip
+                        label={row?.status}
+                        color={
+                          row?.status === "DRAFT"
+                            ? "primary"
+                            : row?.status === "CANCEL"
+                            ? "warning"
+                            : moment
+                                .duration(
+                                  moment()
+                                    .startOf("day")
+                                    .diff(moment(row?.dueDate, "YYYY-MM-DD"))
+                                )
+                                .asDays() >= 0
+                            ? "warning"
+                            : "success"
+                        }
+                      />
+                    </TableCell>
+                    <TableCell align='left'>{row?.TotalAmount}</TableCell>
+                    <TableCell align='left'>
+                      {moment(row?.createdAt).format("D-MMM-YY")}
+                    </TableCell>
+                    <TableCell align='left'>
+                      {moment(row?.dueDate).format("D-MMM-YY")}
+                    </TableCell>
+                    <TableCell align='left'>
+                      {moment
+                        .duration(
+                          moment()
+                            .startOf("day")
+                            .diff(moment(row?.dueDate, "YYYY-MM-DD"))
+                        )
+                        .asDays() > 0
+                        ? moment
+                            .duration(
+                              moment()
+                                .startOf("day")
+                                .diff(moment(row?.dueDate, "YYYY-MM-DD"))
+                            )
+                            .asDays()
+                        : ""}
+                    </TableCell>
+                  </TableRow>
+                </Link>
+              ))
+            : "no data on specific date"}
+        </TableBody>
+      </Table>
     </>
   );
 };
